@@ -1,0 +1,215 @@
+@import '../styles/config';
+
+// Forms styles and variables
+$formWidth: 380px;
+
+// Inputs Text Default
+$inputHeight: 54px;
+$inputPadding: 16px;
+$inputBorderRadius: 4px;
+$inputBorder: 1px solid #d0cfcf;
+$inputColor: #7e7e7e;
+$inputTextColor: black;
+$marginBottom: 50px;
+
+// Input Radio Defaults
+$radioBoxColor: #00bdd3;
+$radioSize: 20px;
+$radioCheckedSize: 10px;
+
+// inputs Messages / Errors
+$errorColor: #cb3d40;
+$successColor: green;
+
+form {
+	width: min($formWidth, 100%);
+	margin-inline: auto;
+
+	label {
+		display: block;
+	}
+}
+
+.input {
+	position: relative;
+	color: $inputColor;
+
+	&--radio,
+	&--file {
+		input {
+			// display: none;
+			width: 0;
+			height: 0;
+			overflow: hidden;
+			opacity: 0;
+			visibility: hidden;
+			position: absolute;
+			z-index: -2;
+		}
+	}
+
+	// Input Text defaults
+	&:not(.input--radio, .input--file) {
+		height: $inputHeight;
+		margin-bottom: $marginBottom;
+
+		// Dynamic Label
+		label {
+			position: absolute;
+			top: 50%;
+			left: $inputPadding;
+			transform: translateY(-50%);
+			z-index: -1;
+
+			background-color: $bg-color;
+			padding: 4px;
+			margin-left: -4px;
+			transition: 0.3s;
+
+			&.focused {
+				font-size: 12px;
+				transform: translateY(-39px);
+				z-index: 1;
+			}
+		}
+
+		input {
+			height: $inputHeight;
+			padding: 0 $inputPadding;
+			border: $inputBorder;
+			border-radius: $inputBorderRadius;
+			color: $inputTextColor;
+		}
+	}
+
+	// Input Radio defaults
+	&--radio {
+		color: $inputTextColor;
+		&:not(:last-child) {
+			margin-bottom: 11px;
+		}
+
+		label {
+			cursor: pointer;
+			position: relative;
+			padding-left: 32px;
+
+			&::after,
+			&::before {
+				content: '';
+				display: inline-block;
+				border-radius: 50%;
+				position: absolute;
+				top: 50%;
+				transform: translateY(-50%);
+			}
+
+			&::before {
+				left: 0;
+				width: $radioSize;
+				height: $radioSize;
+				border: 1px solid $radioBoxColor;
+			}
+
+			&::after {
+				left: 5px;
+				width: $radioCheckedSize;
+				height: $radioCheckedSize;
+				background-color: $radioBoxColor;
+
+				transform: translateY(-50%) scale(0);
+			}
+		}
+
+		input {
+			&:checked {
+				+ label::after {
+					transform: translateY(-50%) scale(1);
+				}
+			}
+		}
+	}
+
+	// Input File defaults
+	&--file {
+		margin-top: 50px;
+
+		label {
+			display: flex;
+			cursor: pointer;
+			height: $inputHeight;
+
+			span {
+				display: flex;
+				align-items: center;
+				padding: 0 15px;
+
+				&.input-file__btn {
+					color: $inputTextColor;
+					border: $inputBorder;
+					border-color: currentColor;
+					border-top-left-radius: $inputBorderRadius;
+					border-bottom-left-radius: $inputBorderRadius;
+				}
+
+				&.input-file__text {
+					border: $inputBorder;
+					border-left: 0;
+					border-top-right-radius: $inputBorderRadius;
+					border-bottom-right-radius: $inputBorderRadius;
+					width: 100%;
+				}
+			}
+		}
+	}
+
+	&-upload {
+		border: $inputBorder;
+		display: block;
+	}
+
+	// Input Select defaults
+
+	// input Error
+	&__error,
+	&__help {
+		font-size: 12px;
+		padding-left: $inputPadding;
+		color: $errorColor;
+
+		position: absolute;
+		top: calc(100% + 4px);
+		left: 0;
+	}
+
+	&__help {
+		color: currentColor;
+	}
+}
+
+.form__error {
+	color: $errorColor;
+	text-align: center;
+	margin: 10px;
+}
+
+.form-checked {
+	margin-top: -5px;
+
+	> label {
+		margin-bottom: 14px;
+	}
+}
+
+// Input validation
+input {
+	width: 100%;
+
+	&:focus:required:invalid {
+		border-color: $errorColor;
+	}
+
+	&:required:valid {
+		border-color: $successColor;
+	}
+}

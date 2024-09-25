@@ -1,0 +1,35 @@
+@font-face {
+	font-family: 'Sequel Sans Semi Bold Disp';
+	src: url('SequelSans-SemiBoldDisp.woff2') format('woff2'),
+		url('SequelSans-SemiBoldDisp.woff') format('woff');
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Sequel Sans Roman Disp';
+	src: url('SequelSans-RomanDisp.woff2') format('woff2'),
+		url('SequelSans-RomanDisp.woff') format('woff');
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Sequel Sans Medium Disp';
+	src: url('SequelSans-MediumDisp.woff2') format('woff2'),
+		url('SequelSans-MediumDisp.woff') format('woff');
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Sequel Sans Medium Obl Disp';
+	src: url('SequelSans-MediumOblDisp.woff2') format('woff2'),
+		url('SequelSans-MediumOblDisp.woff') format('woff');
+	font-weight: 500;
+	font-style: italic;
+	font-display: swap;
+}

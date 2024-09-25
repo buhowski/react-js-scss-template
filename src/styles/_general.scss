@@ -1,0 +1,89 @@
+body {
+	font-family: $font-family;
+	background-color: $white;
+	color: rgba($primary-color, 0.8);
+	font-size: 22px;
+	scrollbar-gutter: stable;
+}
+
+// Container / Wrapper
+.container {
+	width: min(1920px, 100%);
+	margin-inline: auto;
+	padding: 0 20px;
+}
+
+.wrapper {
+	padding: 0 40px;
+
+	@include tablet {
+		padding: 0;
+	}
+}
+
+// Buttons Style
+.main-btn {
+	text-align: center;
+	border-radius: 100px;
+	padding: 16px 50px 17px;
+
+	border: 1px solid $primary-color;
+
+	font-size: 20px;
+	color: $white;
+	background-color: $primary-color;
+
+	@include tablet {
+		font-size: 18px;
+		padding: 11px 30px 12px;
+		width: 100%;
+	}
+
+	&:hover {
+		background-color: $white;
+		color: $primary-color;
+	}
+
+	&.disabled {
+		background-color: $disabled-color;
+		color: rgba($white, 0.87);
+		pointer-events: none;
+	}
+}
+
+// Texts size
+.h1 {
+	font-size: 60px;
+	line-height: 112%;
+
+	@include tablet {
+		font-size: 45px;
+	}
+}
+
+.h2 {
+	font-size: 34px;
+	line-height: 110%;
+
+	@include tablet {
+		font-size: 26px;
+	}
+}
+
+.h3 {
+	font-size: 26px;
+
+	@include tablet {
+		font-size: 18px;
+	}
+}
+
+.title {
+	font-size: 24px;
+	line-height: 130%;
+	color: $primary-hover;
+
+	@include tablet {
+		font-size: 20px;
+	}
+}
