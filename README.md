@@ -23,7 +23,7 @@ In the project directory, you can run:
 ### Prerequisites
 
 ```
-Node.js >= 20V
+Node.js >= v20
 
 npm i
 
